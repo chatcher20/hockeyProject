@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={{color: '#888', fontSize: 32}}> 
-        Calgary Flames are the BEST! .... To share a photo from your phone with a friend, just press the button below!
+        The Calgary Flames rock! .... To share a photo from your phone with a friend, just press the button below!
         </Text>
       <StatusBar style="auto" />
     </View>
