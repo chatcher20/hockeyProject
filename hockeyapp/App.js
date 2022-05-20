@@ -8,7 +8,7 @@ export default function App() {
       <Image source={logo} style={styles.logo} />
       
       <Text style={styles.instructions}> 
-        The Calgary Flames rock! To share a photo from your phone with a friend, just press the button below!
+        To share a photo from your phone with a friend, press the button below.
         </Text>
 
       <TouchableOpacity onPress={() => alert('Matthew Tkachuk says hello!')} style={styles.button} >
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
   },
   button: {
-    backgroundColor: "blue",
+    backgroundColor: '#317',
     padding: 20,
     borderRadius: 5,
   },
