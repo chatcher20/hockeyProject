@@ -10,4 +10,4 @@ Follow this tutorial from the Expo Docs first and then add your code for the hoc
 Read about the basics of React Native here: https://reactnative.dev/docs/intro-react-native-components
 
 ### Once MVP is built
-Deploy it on Netlify or Heroku. Then can make more changes to it.
+Deploy it on Netlify or Heroku. Netlify has a good tutorial, and cn ask Logan how he did his too. Then can make more changes to it.
