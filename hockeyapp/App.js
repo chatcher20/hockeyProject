@@ -1,8 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity, Image, StyleSheet, Text, View } from 'react-native';
-import logo from './assets/logo.png'; 
+import logo from './assets/logo.png';
+import * as ImagePicker from 'expo-image-picker';
 
 export default function App() {
+
+  let openImagePickerAsync = async () => {
+    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert("Permission to access camera roll is required!");
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    console.log(pickerResult);
+
+  }
+
+
+  
   return (
     <View style={styles.container}>
       <Image source={logo} style={styles.logo} />
@@ -37,7 +53,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
   },
   button: {
-    backgroundColor: '#313',
+    backgroundColor: 'red',
     padding: 18,
     borderRadius: 5,
   },
