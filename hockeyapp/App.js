@@ -37,7 +37,6 @@ export default function App() {
   }
 
 
-
   return (
     <View style={styles.container}>
       <Image source={logo} style={styles.logo} />
