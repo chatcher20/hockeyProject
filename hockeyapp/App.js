@@ -1,8 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { TouchableOpacity, Image, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet, Text, View, Platform } from 'react-native';
 import logo from './assets/logo.png';
 import * as ImagePicker from 'expo-image-picker';
+import * as Sharing from 'expo-sharing'; 
 
 export default function App() {
 
@@ -25,6 +26,15 @@ export default function App() {
     setSelectedImage({ localUri: pickerResult.uri });
   };
 
+  let openShareDialogAsync = async () => {
+    if (Platform.OS === 'web') {
+      alert(`Uh oh, sharing isn't available on your platform`);
+      return;
+    }
+
+    await Sharing.shareAsync(selectedImage.localUri);
+  }; 
+
   if (selectedImage !== null) {
     return (
       <View style={styles.container}>
@@ -32,6 +42,9 @@ export default function App() {
           source={{ uri: selectedImage.localUri }}
           style={styles.thumbnail}
         />
+        <TouchableOpacity onPress={openShareDialogAsync} style={styles.button}>
+          <Text style={styles.buttonText}>Share this photo</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -45,7 +58,7 @@ export default function App() {
         To share a photo from your phone with a friend, press the button below.
         </Text>
 
-      <TouchableOpacity onPress={() => alert('Matthew Tkachuk says hello!')} style={styles.button} >
+      <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
         <Text style={styles.buttonText}>Pick a photo</Text>
       </TouchableOpacity>
 
